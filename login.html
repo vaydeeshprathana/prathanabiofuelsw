@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Prathana Biofuels</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body class="login-body">
+    <header style="background: transparent; box-shadow: none; position: absolute; width: 100%;">
+        <div class="header-content">
+            <h1>Prathana Biofuels</h1>
+            <nav>
+                <a href="index.html">Back to Website</a>
+            </nav>
+            <img class="logo-circle-img" src="https://lh3.googleusercontent.com/gg-dl/AOI_d_-5kNEkWrp6ubWnt39MhLlC0pMf-ULdwCQsJupQJGDXrkDqIObRO4F5g3GkcEnw4LYVx4TYyDk0oH-9bxe-aulxidO1xDKPK8yJStJYC10aQB3S54mpnipCJAuhxpk3v3Bgu19AgNBzQ61NUH1qfWOR_moumre6irrYCsF_-EnmqYyLdw=s1024-rj" alt="Logo" onerror="this.src='https://placehold.co/80x80/ffc107/000?text=PB';">
+        </div>
+    </header>
+
+    <div class="login-wrapper">
+        <!-- Login Section -->
+        <section id="loginSection">
+            <div class="login-card">
+                <h2>Welcome Back</h2>
+                <p>Please enter your details to sign in.</p>
+                <div id="loginError" class="alert"></div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="adminEmail" style="text-align: left;">Email Address</label>
+                        <input type="text" id="adminEmail" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword" style="text-align: left;">Password</label>
+                        <input type="password" id="adminPassword" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" style="width: 100%; margin-top: 10px;">Sign In</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="hidden dashboard-container">
+        <div class="sidebar">
+            <button id="navDashboard" class="sidebar-btn">Dashboard</button>
+            <button id="navOrders" class="sidebar-btn">Orders</button>
+            <button id="navProducts" class="sidebar-btn">Products</button>
+            <button id="navNotes" class="sidebar-btn">Notes</button>
+            <div id="productImagePreview" class="hidden" style="margin-top: 10px;">
+                <img id="previewImg" src="" alt="Product Preview" style="max-width: 100%; border-radius: 8px;">
+            </div>
+        </div>
+        <div class="dashboard-header">
+            <div>
+                <h2 id="dashboardTitle" style="margin:0; font-size: 2rem;">Order Dashboard</h2>
+                <p style="margin: 5px 0 0 0; color: #666;">Manage your orders and account.</p>
+            </div>
+            <button id="logoutBtn" style="background-color: #d32f2f; width: auto; padding: 12px 25px;">Logout</button>
+        </div>
+        
+        <!-- Stats Section (Admin Only) -->
+        <div id="adminStats" class="stats-grid hidden">
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-info">
+                    <h3>Total Orders</h3>
+                    <div class="value" id="totalOrders">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-info">
+                    <h3>Total Revenue</h3>
+                    <div class="value" id="totalRevenue">₹0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-info">
+                    <h3>Active Customers</h3>
+                    <div class="value" id="totalCustomers">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="ordersTableContainer" class="table-container">
+            <div class="table-toolbar">
+                <h3 id="ordersTitle" style="margin: 0;">Your Orders</h3>
+                <div class="search-controls">
+                    <input type="text" id="orderSearchInput" placeholder="Search by ID, name, email">
+                    <button id="orderSearchBtn">Search</button>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Date</th>
+                            <th>Customer Details</th>
+                            <th>Quantity</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                        <!-- Orders will be populated here via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Dashboard Orders (Admin-only, remove available here) -->
+        <div id="dashboardOrdersList" class="table-container hidden">
+            <div class="table-toolbar">
+                <h3 style="margin: 0;">Dashboard Orders</h3>
+            </div>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboardOrdersBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <section id="notesSection" class="hidden">
+            <div class="table-container">
+                <div class="table-toolbar">
+                    <h3 style="margin:0;">Notes</h3>
+                </div>
+                <div style="padding: 20px;">
+                    <textarea id="notesTextarea" rows="8" placeholder="Write your notes here..." style="width: 100%;"></textarea>
+                    <div style="margin-top: 10px; display: flex; gap: 10px; align-items: center;">
+                        <button id="saveNotesBtn">Save Notes</button>
+                        <span id="notesStatus" style="color: #4caf50;"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="productsSection" class="hidden">
+            <div class="table-container">
+                <div class="table-toolbar">
+                    <h3 style="margin:0;">Products</h3>
+                    <button id="addProductBtn" title="Add">＋</button>
+                </div>
+                <div style="padding: 20px;">
+                    <div id="addProductForm" class="hidden" style="margin-bottom: 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                        <input id="newProductTitle" placeholder="Title">
+                        <input id="newProductPrice" type="number" min="0" placeholder="Price">
+                        <input id="newProductImg" placeholder="Image URL">
+                        <input id="newProductDesc" placeholder="Details">
+                        <button id="saveNewProductBtn" style="grid-column: span 2;">Save Product</button>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Price</th>
+                                    <th>Image</th>
+                                    <th>Details</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminProductsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

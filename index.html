@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prathana Biofuels - Quality Wood Chips</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button id="sidebarToggle" class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <h1>Prathana Biofuels</h1>
+            <img class="logo-circle-img" src="https://lh3.googleusercontent.com/gg-dl/AOI_d_-5kNEkWrp6ubWnt39MhLlC0pMf-ULdwCQsJupQJGDXrkDqIObRO4F5g3GkcEnw4LYVx4TYyDk0oH-9bxe-aulxidO1xDKPK8yJStJYC10aQB3S54mpnipCJAuhxpk3v3Bgu19AgNBzQ61NUH1qfWOR_moumre6irrYCsF_-EnmqYyLdw=s1024-rj" alt="Logo" onerror="this.src='https://placehold.co/80x80/ffc107/000?text=PB';">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="#features">Why Us</a>
+                <a href="#order">Order Now</a>
+                <a href="#about">About Us</a>
+                <a href="login.html">Login</a>
+        </div>
+    </header>
+
+
+    <div id="menuOverlay" class="menu-overlay hidden">
+        <div class="menu-content">
+            <a href="index.html">Home</a>
+            <a href="#products">Products</a>
+            <a href="#features">Why Us</a>
+            <a href="#order">Order Now</a>
+            <a href="#about">About Us</a>
+            <a href="login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="site-main">
+    <div class="carousel-container">
+        <div class="carousel-slide fade active" onclick="openProductModal(0)">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb77c35e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" onerror="this.src='https://placehold.co/1200x600/2e7d32/FFF?text=Premium+Wood+Chips'" alt="Premium Wood Chips">
+            <div class="carousel-caption">
+                <h3>Premium Hardwood Chips</h3>
+                <p>High BTU output, perfect for industrial boilers.</p>
+                <button class="btn-hero">View Details</button>
+            </div>
+        </div>
+
+        <div class="carousel-slide fade" onclick="openProductModal(1)">
+            <img src="https://images.unsplash.com/photo-1520106212299-d99c443e4568?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" onerror="this.src='https://placehold.co/1200x600/2e7d32/FFF?text=Biomass+Fuel'" alt="Biomass Fuel">
+            <div class="carousel-caption">
+                <h3>Sustainable Biomass Fuel</h3>
+                <p>Eco-friendly renewable energy source.</p>
+                <button class="btn-hero">View Details</button>
+            </div>
+        </div>
+
+        <div class="carousel-slide fade" onclick="openProductModal(2)">
+            <img src="https://images.unsplash.com/photo-1616782046808-8124b6e82846?q=80&w=2070&auto=format&fit=crop" onerror="this.src='https://placehold.co/1200x600/2e7d32/FFF?text=Landscape+Mulch'" alt="Garden Mulch">
+            <div class="carousel-caption">
+                <h3>Landscape Mulch</h3>
+                <p>Retains moisture and beautifies your garden.</p>
+                <button class="btn-hero">View Details</button>
+            </div>
+        </div>
+
+         <div class="carousel-slide fade" onclick="openProductModal(3)">
+            <img src="https://images.unsplash.com/photo-1595856417769-e763131e5057?q=80&w=2070&auto=format&fit=crop" onerror="this.src='https://placehold.co/1200x600/2e7d32/FFF?text=Fine+Sawdust'" alt="Sawdust">
+            <div class="carousel-caption">
+                <h3>Fine Sawdust</h3>
+                <p>Ideal for animal bedding and absorption.</p>
+                <button class="btn-hero">View Details</button>
+            </div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1, event)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, event)">&#10095;</a>
+    </div>
+
+    <section id="features" class="features-section">
+        <h2>Why Choose Prathana Biofuels?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="feature-icon">&#127793;</span>
+                <h3>Sustainably Sourced</h3>
+                <p>All our wood products come from certified sustainable forests, ensuring environmental responsibility.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">&#128293;</span>
+                <h3>High Energy Output</h3>
+                <p>Our chips are dried to optimal moisture content, guaranteeing maximum heat efficiency for your boilers.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">&#128666;</span>
+                <h3>Reliable Delivery</h3>
+                <p>We own our fleet of trucks to ensure your fuel arrives on time, every time, regardless of the season.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section id="products">
+            <h2 class="section-title">Our Products</h2>
+            <div class="table-toolbar products-toolbar" style="margin-bottom: 20px;">
+                <div class="search-controls">
+                    <input id="productSearchInput" type="text" placeholder="Search products">
+                    <select id="productSortSelect" style="padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        <option value="featured">Featured</option>
+                        <option value="price_asc">Price: Low to High</option>
+                        <option value="price_desc">Price: High to Low</option>
+                        <option value="title_asc">Title</option>
+                    </select>
+                </div>
+                <div class="search-controls" style="gap:6px;">
+                    <button id="viewGridBtn">Grid</button>
+                    <button id="viewListBtn">List</button>
+                </div>
+            </div>
+            <div id="productsGrid" class="products-grid">
+                <!-- Products will be populated here via JS -->
+            </div>
+        </section>
+
+        <!-- Product Modal -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeProductModal()">&times;</span>
+                <div class="modal-image">
+                    <img id="modalImg" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle">Product Name</h2>
+                    <p id="modalDesc">Product description goes here.</p>
+                    <p><strong>Features:</strong></p>
+                    <ul id="modalFeatures">
+                        <!-- Features list -->
+                    </ul>
+                    <p><strong>Price:</strong> <span id="modalPrice">$0.00</span></p>
+                    <a href="#order" onclick="closeProductModal()"><button>Order Now</button></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thank You Modal -->
+        <div id="thankYouModal" class="modal">
+            <div class="modal-content thank-you-content">
+                <span class="close" onclick="closeThankYouModal()">&times;</span>
+                <div class="thank-you-body">
+                    <div class="success-checkmark">
+                        <div class="check-icon">
+                            <span class="icon-line line-tip"></span>
+                            <span class="icon-line line-long"></span>
+                            <div class="icon-circle"></div>
+                            <div class="icon-fix"></div>
+                        </div>
+                    </div>
+                    <h2>Thank You!</h2>
+                    <p>Thanks for buying from Prathana Biofuels.</p>
+                    <p class="small-text">We have received your order and will contact you shortly.</p>
+                    <button class="btn-hero" onclick="closeThankYouModal()" style="opacity: 1; animation: none; margin-top: 20px;">Continue Browsing</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="order">
+            <h2 class="section-title">Place Your Order</h2>
+            <div class="card">
+                <div id="orderSuccess" class="success">Order placed successfully! We will contact you shortly.</div>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity (Tons)</label>
+                        <input type="number" id="quantity" min="1" required placeholder="How many tons?">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <textarea id="address" rows="3" required placeholder="Enter delivery address"></textarea>
+                    </div>
+                    <button type="submit">Submit Order</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <section id="about" class="features-section" style="margin-top: 60px;">
+        <h2>About Us</h2>
+            <div class="card" style="padding: 30px;">
+                <h3 style="margin-top: 0;">Prathana Biofuels</h3>
+                <p>
+                    We are a dedicated wood chips and biomass fuel supplier focused on reliable quality,
+                    sustainable sourcing, and on-time delivery. Our mission is to power industry with
+                    clean, efficient biomass while caring for the environment and our community.
+                </p>
+                <p>
+                    From premium hardwood chips to fine sawdust and landscaping mulch, we serve factories,
+                    farms, and large-scale consumers across the region. Contact us to discuss your fuel
+                    needs and volume pricing.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Prathana Biofuels. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    </div>
+</body>
+</html>
